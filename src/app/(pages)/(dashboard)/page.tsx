@@ -1,11 +1,20 @@
 import { BannerPrimary } from "@/app/components/BannerPrimary";
 import { BannerSecondary } from "@/app/components/BannerSecondary";
 import { categories } from "@/app/utils/categories";
-
-export default function Dashboard() {
+import { fetchWrapper } from "@/app/utils/fetchWrapper";
+import axios from 'axios'
+ const getData = async () => {
+        const response = await axios.get('http://localhost:3333/events/main')
+        return response.data
+    }
+    export default async function Dashboard() {
+   const response = await getData();
+   console.log(response)
+   
+   const secondaryResponse = response.slice(26)
     return (
         <div className="container mx-auto mr-8">
-            <BannerPrimary/>
+            <BannerPrimary events={response[27]}/>
             <div className=" p-2 text-blue ml-12  ">
                 <p className="text-2xl font-medium">Eventos em Destaque</p>
                 <p className=" font-light text-base">Se divirta com os principais eventos de Minas Gerais e do Brasil!</p>
@@ -13,7 +22,9 @@ export default function Dashboard() {
 
             </div>
             <div className=" grid grid-cols-3 gap-3 p-12">
-            {[1,2,3].map((Bannersecondary) => <BannerSecondary/> )}
+            {secondaryResponse.map((event: any) => (
+                <BannerSecondary event={event}/>
+            ) )}
           
             </div>
             <div className=" p-2 text-blue ml-12  ">

@@ -1,0 +1,10 @@
+export const fetchWrapper = async (url: string, options: any) => {
+    const response = await fetch(`http://localhost:3333${url}`, options);
+
+    if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+}
