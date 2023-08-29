@@ -2,6 +2,7 @@
 import { CardFilter } from "@/app/components/CardFilter";
 import { Button } from "@/app/components/Form/Button";
 import { Input } from "@/app/components/Form/Input";
+import { AutoComplete } from "@/app/components/Form/InputAutoComplete";
 import { InputFile } from "@/app/components/Form/InputFile";
 import { InputRange } from "@/app/components/Form/InputRange";
 import { categories } from "@/app/utils/categories";
@@ -37,7 +38,7 @@ export default function FilterEvents() {
 
                     </div>
                     <Input title="Nome" placeholder="Insira o nome do seu evento" type="text" />
-                    <Input title="Localização" placeholder="Insira o endereço do seu evento" type="text" />
+                    <AutoComplete/>
                     
 
                     <div className="grid grid-cols-2 gap-3">

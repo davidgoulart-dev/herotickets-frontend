@@ -1,10 +1,12 @@
-import { ForwardRefRenderFunction, forwardRef} from 'react'
+import { ChangeEvent, ForwardRefRenderFunction, forwardRef} from 'react'
 
 interface IInput {
     placeholder: string,
     type: string,
     title: string,
-    className?: string
+    className?: string,
+    value?: string
+    onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 export const InputBase: ForwardRefRenderFunction<HTMLInputElement & HTMLTextAreaElement, IInput > = (
     {placeholder, type, className, title, ...rest },
@@ -21,7 +23,7 @@ export const InputBase: ForwardRefRenderFunction<HTMLInputElement & HTMLTextArea
          placeholder={placeholder}
          ref={ref}
          rows={5}
-         {...rest} 
+         
          />
 
             </div>
@@ -36,6 +38,7 @@ export const InputBase: ForwardRefRenderFunction<HTMLInputElement & HTMLTextArea
             type={type}
             placeholder={placeholder}
             ref={ref}
+            
             {...rest} 
             />
        

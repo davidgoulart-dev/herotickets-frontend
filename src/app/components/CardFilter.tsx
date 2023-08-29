@@ -5,7 +5,7 @@ export const CardFilter = ({event}: any) => {
     const image = `http://localhost:3333/uploads/${event.banner}`
     return (
         <div className="rounded mb-6 ">
-            <div className="w-full p-4 h-[150px] relative bg-black bg-opacity-25 rounded-3xl rounded-b-none shadow" style={{backgroundImage: `url(${image})`}}>
+            <div className="w-full p-4 h-[150px] relative bg-black bg-opacity-25 rounded-3xl rounded-b-none shadow bg-cover bg-center" style={{backgroundImage: `url(${image})`}}>
                 <div className=" text-white absolute top-3">
                     <p className=" text-normal pb-1 font-bold">{event.title}</p>
                     <div className="flex">
